@@ -8,7 +8,7 @@ const Sources_Wired = () => {
     const searchNews = async () => {
       try {
         const response = await fetch(
-          `https://newsapi.org/v2/top-headlines?sources=wired&pageSize=100&apiKey=${apiKey_SA}`
+          `https://newsapi.org/v2/top-headlines?sources=wired&pageSize=100&apiKey=${process.env.REACT_APP_newsAPI_apiKey}`
         );
         const data = await response.json();
         setNews(data.articles);
