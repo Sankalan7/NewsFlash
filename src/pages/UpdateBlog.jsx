@@ -57,7 +57,6 @@ const UpdateBlog = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Create a FormData object and append form data to it
     const formData = new FormData(e.target);
     const createdOn = new Date();
     const updatedOn = createdOn;
@@ -70,10 +69,8 @@ const UpdateBlog = () => {
     formData.append("createdOn", createdOn);
     formData.append("updatedOn", updatedOn);
     formData.append("userId", userId);
+    formData.append("urlToImage", urlToImage);
 
-    // formData.append("image", image);
-
-    // Make a POST request to the API endpoint with the form data
     try {
       console.log(formData);
       const response = await fetch(
@@ -83,15 +80,7 @@ const UpdateBlog = () => {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({
-            title,
-            content,
-            urlToImage,
-            author,
-            createdOn,
-            updatedOn,
-            userId,
-          }),
+          body: formData,
         }
       );
       const data = await response.json();

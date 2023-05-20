@@ -64,12 +64,12 @@ const PostDetails = () => {
   const deletePost = async () => {
     try {
       const deleteResponse = await fetch(
-        `${process.env.REACT_APP_backend_baseURL}/posts/delete/${userId}`,
+        `${process.env.REACT_APP_backend_baseURL}/posts/delete/${postId}`,
         { method: "DELETE" }
       );
 
-      const data = deleteResponse.json();
-      console.log(data);
+      // const data = deleteResponse.json();
+      // console.log(data);
       navigate("/forum");
       deleteSuccess();
     } catch (error) {

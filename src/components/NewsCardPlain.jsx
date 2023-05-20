@@ -8,6 +8,15 @@ const NewsCardPlain = ({ news1, index, activeArticle }) => {
     window.open(news1.url, "_blank", "noreferrer");
   };
 
+  const handleBiasClick = (event) => {
+    event.preventDefault();
+    window.open(
+      `https://www.allsides.com/media-bias/ratings?field_featured_bias_rating_value=All&field_news_source_type_tid[1]=1&field_news_source_type_tid[2]=2&field_news_source_type_tid[3]=3&field_news_source_type_tid[4]=4&field_news_source_type_tid[5]=5&field_news_bias_nid_1[1]=1&field_news_bias_nid_1[2]=2&field_news_bias_nid_1[3]=3&title=${news1.source.name}`,
+      "_blank",
+      "noreferrer"
+    );
+  };
+
   activeArticle = localStorage.getItem("activeArticle");
 
   return (
@@ -37,6 +46,9 @@ const NewsCardPlain = ({ news1, index, activeArticle }) => {
         <div className="flex flex-row justify-between">
           <button onClick={handleClick} className="text-md text-blue-500">
             LEARN MORE
+          </button>
+          <button onClick={handleBiasClick} className="text-md text-blue-500">
+            CHECK BIAS
           </button>
           <div className="flex items-center justify-center h-8 w-8 rounded-full bg-blue-950 text-white text-lg mr-2">
             {index + 1}

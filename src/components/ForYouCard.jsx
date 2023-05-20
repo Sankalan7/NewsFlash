@@ -9,6 +9,15 @@ const ForYouCard = ({ news1, index }) => {
     window.open(news1.url, "_blank", "noreferrer");
   };
 
+  const handleBiasClick = (event) => {
+    event.preventDefault();
+    window.open(
+      `https://www.allsides.com/media-bias/ratings?field_featured_bias_rating_value=All&field_news_source_type_tid[1]=1&field_news_source_type_tid[2]=2&field_news_source_type_tid[3]=3&field_news_source_type_tid[4]=4&field_news_source_type_tid[5]=5&field_news_bias_nid_1[1]=1&field_news_bias_nid_1[2]=2&field_news_bias_nid_1[3]=3&title=${news1.source.name}`,
+      "_blank",
+      "noreferrer"
+    );
+  };
+
   const categoryName = news1.category.replace("-", " ");
   let countryName;
   const category = news1.category.toUpperCase();
@@ -64,6 +73,9 @@ const ForYouCard = ({ news1, index }) => {
         <div className="flex flex-row justify-between">
           <button onClick={handleClick} className="text-md text-blue-500">
             LEARN MORE
+          </button>
+          <button onClick={handleBiasClick} className="text-md text-blue-500">
+            CHECK BIAS
           </button>
           <div className="flex items-center justify-center p-2 bg-blue-950 text-white text-lg mr-2">
             {countryName ? countryName : categoryName.toUpperCase()}
