@@ -16,7 +16,7 @@ const NewsCardPlainContainer = ({ i, heading, activeArticle }) => {
           {heading}
         </h1>
 
-        <div className="px-12 pb-12 w-full h-full justify-center items-center box-border grid grid-cols-4 gap-8">
+        <div className="px-12 pb-12 w-full h-full justify-center items-center box-border grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-8">
           {i.map((news1, index) => (
             <NewsCardPlain
               news1={news1}
