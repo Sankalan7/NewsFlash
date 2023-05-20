@@ -23,6 +23,14 @@ const NewsCard = ({ news1 }) => {
     event.preventDefault();
     window.open(news1.url, "_blank", "noreferrer");
   };
+  const handleBiasClick = (event) => {
+    event.preventDefault();
+    window.open(
+      `https://www.allsides.com/media-bias/ratings?field_featured_bias_rating_value=All&field_news_source_type_tid[1]=1&field_news_source_type_tid[2]=2&field_news_source_type_tid[3]=3&field_news_source_type_tid[4]=4&field_news_source_type_tid[5]=5&field_news_bias_nid_1[1]=1&field_news_bias_nid_1[2]=2&field_news_bias_nid_1[3]=3&title=${news1.source.name}`,
+      "_blank",
+      "noreferrer"
+    );
+  };
 
   const titleWords = news1.title ? news1.title.split(" ") : [];
   const truncatedTitle =
@@ -82,8 +90,11 @@ const NewsCard = ({ news1 }) => {
         ) : null}
         {hovered ? (
           <>
-            <div className="mb-3 h-100 flex flex-column justify-around">
-              <div style={{ display: "flex", flexDirection: "column" }}>
+            <div className="mb-3 h-100 flex flex-col justify-between">
+              <div
+                className="space-x-2"
+                style={{ display: "flex", flexDirection: "row" }}
+              >
                 <Button
                   variant="contained"
                   color="primary"
@@ -93,36 +104,45 @@ const NewsCard = ({ news1 }) => {
                 >
                   Open
                 </Button>
-                <div className="mb-3 flex justify-around">
-                  <FacebookShareButton url={news1.url}>
-                    <FacebookIcon
-                      className="h-10 w-10"
-                      logofillcolor="white"
-                      round={true}
-                    ></FacebookIcon>
-                  </FacebookShareButton>
-                  <TwitterShareButton url={news1.url}>
-                    <TwitterIcon
-                      className="h-10 w-10"
-                      logofillcolor="white"
-                      round={true}
-                    ></TwitterIcon>
-                  </TwitterShareButton>
-                  <WhatsappShareButton url={news1.url}>
-                    <WhatsappIcon
-                      className="h-10 w-10"
-                      logofillcolor="white"
-                      round={true}
-                    ></WhatsappIcon>
-                  </WhatsappShareButton>
-                  <LinkedinShareButton url={news1.url}>
-                    <LinkedinIcon
-                      className="h-10 w-10"
-                      logofillcolor="white"
-                      round={true}
-                    ></LinkedinIcon>
-                  </LinkedinShareButton>
-                </div>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  className="h-70 w-70"
+                  style={{ marginBottom: "1rem" }}
+                  onClick={handleBiasClick}
+                >
+                  Check Bias
+                </Button>
+              </div>
+              <div className="mb-3 flex justify-around">
+                <FacebookShareButton url={news1.url}>
+                  <FacebookIcon
+                    className="h-10 w-10"
+                    logofillcolor="white"
+                    round={true}
+                  ></FacebookIcon>
+                </FacebookShareButton>
+                <TwitterShareButton url={news1.url}>
+                  <TwitterIcon
+                    className="h-10 w-10"
+                    logofillcolor="white"
+                    round={true}
+                  ></TwitterIcon>
+                </TwitterShareButton>
+                <WhatsappShareButton url={news1.url}>
+                  <WhatsappIcon
+                    className="h-10 w-10"
+                    logofillcolor="white"
+                    round={true}
+                  ></WhatsappIcon>
+                </WhatsappShareButton>
+                <LinkedinShareButton url={news1.url}>
+                  <LinkedinIcon
+                    className="h-10 w-10"
+                    logofillcolor="white"
+                    round={true}
+                  ></LinkedinIcon>
+                </LinkedinShareButton>
               </div>
             </div>
           </>
