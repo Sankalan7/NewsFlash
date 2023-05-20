@@ -223,7 +223,7 @@ const Navbar = ({
 
       <div className="flex justify-between w-full">
         <ul className="flex space-x-6 pb-2 font-barlow">
-          <li className="pt-6 font-merriweather">
+          <li className="pt-6">
             <form onSubmit={handleSubmit}>
               <div className="flex items-center">
                 <input

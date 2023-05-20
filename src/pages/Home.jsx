@@ -29,7 +29,7 @@ const Home = () => {
 
         <section
           id="features"
-          className="flex flex-col items-center justify-center h-screen bg-blue-50"
+          className="flex flex-col items-center justify-center min-h-screen bg-blue-50"
         >
           <div className="max-w-7xl mx-auto mt-12 px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl font-bold text-blue-900 text-center mb-8">
