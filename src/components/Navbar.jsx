@@ -87,7 +87,12 @@ const Navbar = ({
         navigate(url);
         setIsSearchLoading(true);
         const API_URL = `https://newsapi.org/v2/everything?q=${searchValue}&apiKey=${process.env.REACT_APP_newsAPI_apiKey}`;
-        const response = await axios.get(API_URL);
+        const headers = {
+          "User-Agent":
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36 Edg/91.0.864.59",
+        };
+        const response = await axios.get(API_URL, { headers });
+
         setNews(response.data.articles);
         setSearchValue("");
         setIsSearchLoading(false);
@@ -100,7 +105,13 @@ const Navbar = ({
   const handleInitialSearch = async (query) => {
     try {
       const response = await axios.get(
-        `https://newsapi.org/v2/everything?q=${query}&apiKey=${process.env.REACT_APP_newsAPI_apiKey}`
+        `https://newsapi.org/v2/everything?q=${query}&apiKey=${process.env.REACT_APP_newsAPI_apiKey}`,
+        {
+          headers: {
+            "User-Agent":
+              "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36 Edg/91.0.864.59", // Replace with your app name and version
+          },
+        }
       );
       setNews(response.data.articles);
       setSearchValue("");
