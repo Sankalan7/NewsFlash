@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import NewsCard from "./NewsCard";
 import "../App.css";
 import AudioLoader from "./Loaders/Audio";
@@ -11,6 +11,8 @@ import "slick-carousel/slick/slick-theme.css";
 import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const ForYouCardContainer = ({
   categoriesNews,
@@ -20,6 +22,9 @@ const ForYouCardContainer = ({
   countriesNews,
   countriesDefault,
 }) => {
+  useEffect(() => {
+    Aos.init({ duration: 750 });
+  }, []);
   const settings = {
     dots: false,
     infinite: true,
@@ -64,10 +69,10 @@ const ForYouCardContainer = ({
   return categoriesNews?.length > 0 &&
     sourcesNews?.length > 0 &&
     countriesNews?.length > 0 ? (
-    <>
+    <div className="bg-gradient-to-r from-[#402565] to-[#30BE96]">
       {show && (
-        <div className="container mx-auto w-full py-4 flex flex-col justify-center bg-blue-950">
-          <div className="px-6 text-3xl text-white font-yanone flex flex-row justify-between">
+        <div className="mx-auto w-full pt-2 flex flex-col justify-center bg-blue-950">
+          <div className="px-6 text-2xl text-white font-yanone flex flex-row justify-between">
             <div>
               <span>This page is based on your</span>
               <NavLink exact={true} to="/preferences">
@@ -90,94 +95,100 @@ const ForYouCardContainer = ({
         </div>
       )}
 
-      <div className="flex flex-row bg-gray-800">
-        <h1 className="font-maven text-3xl text-white font-bold p-12 pr-4">
-          News by Categories
-        </h1>
-        {categoriesDefault && (
-          <NavLink exact="true" to="/preferences">
-            <button
-              title="Set categories you like to see in preferences"
-              className="font-maven text-xl text-[#FFD700] bg-gray-800 p-12 pl-4 mt-1"
-            >
-              DEFAULT
-            </button>
-          </NavLink>
-        )}
-      </div>
-      <div className="bg-gradient-to-r from-[#402565] to-[#30BE96] py-6">
-        <div className="items-center px-16 pb-12">
-          <Slider {...settings}>
-            {categoriesNews.map((news1, index) => (
-              <ForYouCard
-                news1={news1}
-                index={index}
-                key={uuidv4()}
-                className="w-1/4"
-              />
-            ))}
-          </Slider>
+      <div data-aos="fade-up">
+        <div className="flex flex-row bg-gray-800">
+          <h1 className="font-maven text-3xl text-white font-bold p-12 pr-4">
+            News by Categories
+          </h1>
+          {categoriesDefault && (
+            <NavLink exact="true" to="/preferences">
+              <button
+                title="Set categories you like to see in preferences"
+                className="font-maven text-xl text-[#FFD700] bg-gray-800 p-12 pl-4 mt-1"
+              >
+                DEFAULT
+              </button>
+            </NavLink>
+          )}
+        </div>
+        <div className="bg-gradient-to-r from-[#402565] to-[#30BE96] py-6">
+          <div className="items-center px-16 pb-12">
+            <Slider {...settings}>
+              {categoriesNews.map((news1, index) => (
+                <ForYouCard
+                  news1={news1}
+                  index={index}
+                  key={uuidv4()}
+                  className="w-1/4"
+                />
+              ))}
+            </Slider>
+          </div>
         </div>
       </div>
-      <div className="flex flex-row bg-gray-800">
-        <h1 className="font-maven text-3xl text-white font-bold p-12 pr-4">
-          News by Sources
-        </h1>
-        {sourcesDefault && (
-          <NavLink exact="true" to="/preferences">
-            <button
-              title="Set sources you like to see in preferences"
-              className="font-maven text-xl text-[#FFD700] bg-gray-800 p-12 pl-4 mt-1"
-            >
-              DEFAULT
-            </button>
-          </NavLink>
-        )}
-      </div>
-      <div className="bg-gradient-to-r from-[#402565] to-[#30BE96] py-6">
-        <div className="items-center px-16 pb-12">
-          <Slider {...settings}>
-            {sourcesNews.map((news1, index) => (
-              <ForYouCard
-                news1={news1}
-                index={index}
-                key={uuidv4()}
-                className="w-1/4"
-              />
-            ))}
-          </Slider>
+      <div data-aos="fade-up">
+        <div className="flex flex-row bg-gray-800">
+          <h1 className="font-maven text-3xl text-white font-bold p-12 pr-4">
+            News by Sources
+          </h1>
+          {sourcesDefault && (
+            <NavLink exact="true" to="/preferences">
+              <button
+                title="Set sources you like to see in preferences"
+                className="font-maven text-xl text-[#FFD700] bg-gray-800 p-12 pl-4 mt-1"
+              >
+                DEFAULT
+              </button>
+            </NavLink>
+          )}
+        </div>
+        <div className="bg-gradient-to-r from-[#402565] to-[#30BE96] py-6">
+          <div className="items-center px-16 pb-12">
+            <Slider {...settings}>
+              {sourcesNews.map((news1, index) => (
+                <ForYouCard
+                  news1={news1}
+                  index={index}
+                  key={uuidv4()}
+                  className="w-1/4"
+                />
+              ))}
+            </Slider>
+          </div>
         </div>
       </div>
-      <div className="flex flex-row bg-gray-800">
-        <h1 className="font-maven text-3xl text-white font-bold p-12 pr-4">
-          News by Countries
-        </h1>
-        {countriesDefault && (
-          <NavLink exact="true" to="/preferences">
-            <button
-              title="Set countries you like to see in preferences"
-              className="font-maven text-xl text-[#FFD700] bg-gray-800 p-12 pl-4 mt-1"
-            >
-              DEFAULT
-            </button>
-          </NavLink>
-        )}
-      </div>
-      <div className="bg-gradient-to-r from-[#402565] to-[#30BE96] py-6">
-        <div className="items-center px-16 pb-12">
-          <Slider {...settings}>
-            {countriesNews.map((news1, index) => (
-              <ForYouCard
-                news1={news1}
-                index={index}
-                key={uuidv4()}
-                className="w-1/4"
-              />
-            ))}
-          </Slider>
+      <div data-aos="fade-up">
+        <div className="flex flex-row bg-gray-800">
+          <h1 className="font-maven text-3xl text-white font-bold p-12 pr-4">
+            News by Countries
+          </h1>
+          {countriesDefault && (
+            <NavLink exact="true" to="/preferences">
+              <button
+                title="Set countries you like to see in preferences"
+                className="font-maven text-xl text-[#FFD700] bg-gray-800 p-12 pl-4 mt-1"
+              >
+                DEFAULT
+              </button>
+            </NavLink>
+          )}
+        </div>
+        <div className="bg-gradient-to-r from-[#402565] to-[#30BE96] py-6">
+          <div className="items-center px-16 pb-12">
+            <Slider {...settings}>
+              {countriesNews.map((news1, index) => (
+                <ForYouCard
+                  news1={news1}
+                  index={index}
+                  key={uuidv4()}
+                  className="w-1/4"
+                />
+              ))}
+            </Slider>
+          </div>
         </div>
       </div>
-    </>
+    </div>
   ) : (
     <AudioLoader />
   );

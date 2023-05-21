@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const Tools = () => {
+  useEffect(() => {
+    Aos.init({ duration: 1000 });
+  }, []);
   const [weather, setWeather] = useState({});
   useEffect(() => {
     const searchWeather = async () => {
@@ -26,7 +31,7 @@ const Tools = () => {
 
   return (
     <>
-      <div className="flex flex-col min-h-screen">
+      <div className="flex flex-col min-h-screen bg-blue-300">
         <section className="relative flex items-center justify-center h-screen bg-gray-900">
           <img
             src="https://source.unsplash.com/random/1600x900/?weather"
@@ -77,6 +82,7 @@ const Tools = () => {
         <section
           id="tools"
           className="flex flex-col items-center justify-center h-screen bg-blue-300 p-12"
+          data-aos="fade-up"
         >
           <div className="grid grid-cols-4 gap-4 h-full w-full">
             <div

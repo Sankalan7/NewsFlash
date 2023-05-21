@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const defaultImageUrl =
   "https://www.industry.gov.au/sites/default/files/August%202018/image/news-placeholder-738.png";
 
 const NewsCardBasic = ({ news1 }) => {
+  useEffect(() => {
+    Aos.init({ duration: 1000 });
+  }, []);
   const handleClick = () => {
     window.open(news1.url, "_blank");
   };

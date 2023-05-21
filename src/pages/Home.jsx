@@ -1,10 +1,19 @@
-import React from "react";
+import Aos from "aos";
+import "aos/dist/aos.css";
+import React, { useEffect } from "react";
+import Typed from "react-typed";
 
 const Home = () => {
+  useEffect(() => {
+    Aos.init({ duration: 1000 });
+  }, []);
   return (
     <>
       <div className="flex flex-col min-h-screen">
-        <section className="relative flex items-center justify-center h-screen bg-gray-900">
+        <section
+          className="relative flex items-center justify-center h-screen bg-gray-900"
+          data-aos="fade-up"
+        >
           <img
             src="https://source.unsplash.com/random/1600x900/?news"
             alt="Coffee shop"
@@ -16,7 +25,18 @@ const Home = () => {
               Welcome to NewsFlash
             </h1>
             <p className="mt-4 text-lg font-medium text-gray-300">
-              One place for all the news and headlines that you need
+              <Typed
+                strings={[
+                  "One place for all the news and headlines that you need",
+                  "Stay informed with the latest news and headlines",
+                  "Get real-time updates on global events",
+                  "Discover stories from around the world",
+                  "Access breaking news as it happens",
+                ]}
+                typeSpeed={40}
+                backSpeed={15}
+                loop
+              />
             </p>
             <a
               href="#features"
@@ -30,6 +50,7 @@ const Home = () => {
         <section
           id="features"
           className="flex flex-col items-center justify-center min-h-screen bg-blue-50"
+          data-aos="fade-up"
         >
           <div className="max-w-7xl mx-auto mt-12 px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl font-bold text-blue-900 text-center mb-8">

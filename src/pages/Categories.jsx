@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from "react";
 import NewsCardCarouselContainer from "../components/NewsCardCarouselContainer";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const Categories = () => {
+  useEffect(() => {
+    Aos.init({ duration: 1000 });
+  }, []);
   const [businessNews, setBusinessNews] = useState([]);
   const [entertainementNews, setEntertainmentNews] = useState([]);
   const [generalNews, setGeneralNews] = useState([]);
@@ -107,20 +112,39 @@ const Categories = () => {
 
   return (
     <>
-      <div className="min-h-screen bg-gradient-to-r from-blue-600 to-gray-800">
+      <div className="min-h-screen space-y-8 bg-gradient-to-r from-[#9f025e] to-[#f9c929]">
         <NewsCardCarouselContainer
+          data-aos="fade-up"
           i={businessNews}
           heading="Top Business News"
         />
         <NewsCardCarouselContainer
+          data-aos="fade-up"
           i={entertainementNews}
           heading="Top Entertainment News"
         />
-        <NewsCardCarouselContainer i={generalNews} heading="Top General News" />
-        <NewsCardCarouselContainer i={healthNews} heading="Top Health News" />
-        <NewsCardCarouselContainer i={scienceNews} heading="Top Science News" />
-        <NewsCardCarouselContainer i={sportsNews} heading="Top Sports News" />
         <NewsCardCarouselContainer
+          data-aos="fade-up"
+          i={generalNews}
+          heading="Top General News"
+        />
+        <NewsCardCarouselContainer
+          data-aos="fade-up"
+          i={healthNews}
+          heading="Top Health News"
+        />
+        <NewsCardCarouselContainer
+          data-aos="fade-up"
+          i={scienceNews}
+          heading="Top Science News"
+        />
+        <NewsCardCarouselContainer
+          data-aos="fade-up"
+          i={sportsNews}
+          heading="Top Sports News"
+        />
+        <NewsCardCarouselContainer
+          data-aos="fade-up"
           i={technologyNews}
           heading="Top Technology News"
         />

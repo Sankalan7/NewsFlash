@@ -6,6 +6,7 @@ const defaultImageUrl =
 
 const PostCard = ({ post }) => {
   const [userDetails, setUserDetails] = useState({});
+  const userId = localStorage.getItem("userId");
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -28,7 +29,7 @@ const PostCard = ({ post }) => {
 
     fetchData();
   }, []);
-  const url = `/posts/${userDetails.id}/${post.id}`;
+  const url = `/posts/${userId}/${post.id}`;
   const authorString = post.author;
   const contentWords = post.content.split(" ").slice(0, 50).join(" ");
   const content = `${contentWords}...`;

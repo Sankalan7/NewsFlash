@@ -10,6 +10,16 @@ import { faThumbsDown as unfilledThumbsDown } from "@fortawesome/free-regular-sv
 import { faComment } from "@fortawesome/free-regular-svg-icons";
 import { v4 as uuidv4 } from "uuid";
 import FocusLock from "react-focus-lock";
+import {
+  FacebookShareButton,
+  FacebookIcon,
+  TwitterShareButton,
+  TwitterIcon,
+  WhatsappShareButton,
+  WhatsappIcon,
+  LinkedinShareButton,
+  LinkedinIcon,
+} from "react-share";
 
 const defaultImageUrl =
   "https://www.industry.gov.au/sites/default/files/August%202018/image/news-placeholder-738.png";
@@ -454,6 +464,8 @@ const PostDetails = () => {
     inputRef.current?.focus();
   }, []);
 
+  const currentUrl = window.location.href;
+
   return (
     <>
       <div className="max-w-3xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
@@ -487,6 +499,37 @@ const PostDetails = () => {
             </button>
           </div>
         )}
+        <div className="mb-3 py-4 flex justify-center space-x-2">
+          <p className="text-xl pt-1">Share it on:</p>
+          <FacebookShareButton url={currentUrl}>
+            <FacebookIcon
+              className="h-10 w-10"
+              logofillcolor="white"
+              round={true}
+            ></FacebookIcon>
+          </FacebookShareButton>
+          <TwitterShareButton url={currentUrl}>
+            <TwitterIcon
+              className="h-10 w-10"
+              logofillcolor="white"
+              round={true}
+            ></TwitterIcon>
+          </TwitterShareButton>
+          <WhatsappShareButton url={currentUrl}>
+            <WhatsappIcon
+              className="h-10 w-10"
+              logofillcolor="white"
+              round={true}
+            ></WhatsappIcon>
+          </WhatsappShareButton>
+          <LinkedinShareButton url={currentUrl}>
+            <LinkedinIcon
+              className="h-10 w-10"
+              logofillcolor="white"
+              round={true}
+            ></LinkedinIcon>
+          </LinkedinShareButton>
+        </div>
         <div className="flex flex-row p-6 text-3xl justify-between mt-4">
           <div>
             <button onClick={handleLike} className="mr-2">

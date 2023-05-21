@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import NewsCard from "./NewsCard";
 import "../App.css";
 import AudioLoader from "./Loaders/Audio";
@@ -7,8 +7,13 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import NewsCardBasic from "./NewsCardBasic";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const NewsCardVerticalCarouselContainer = ({ i, heading }) => {
+  useEffect(() => {
+    Aos.init({ duration: 1000 });
+  }, []);
   const settings = {
     dots: false,
     infinite: true,

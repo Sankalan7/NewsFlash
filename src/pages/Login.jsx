@@ -36,6 +36,7 @@ const Login = () => {
       const { token } = await response.json();
       localStorage.setItem("token", token);
 
+
       const userDetailsResponse = await fetch(
         `${process.env.REACT_APP_backend_baseURL}/auth/user-details`,
         {
@@ -45,6 +46,7 @@ const Login = () => {
         }
       );
       const data = await userDetailsResponse.json();
+      localStorage.setItem("userId", data.id);
       setData(data);
       navigate("/");
       notifySuccess();
