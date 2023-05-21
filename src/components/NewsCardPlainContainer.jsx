@@ -12,11 +12,11 @@ const NewsCardPlainContainer = ({ i, heading, activeArticle }) => {
   return i?.length > 0 ? (
     <>
       <div className="bg-gradient-to-r from-[#402565] to-[#30BE96]">
-        <h1 className="font-maven text-3xl text-white fond-bold p-6">
+        <h1 className="font-maven text-3xl text-white fond-bold p-6 pt-8">
           {heading}
         </h1>
 
-        <div className="px-12 pb-12 w-full h-full justify-center items-center box-border grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-8">
+        <div className="px-4 pb-12 justify-center items-center grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-4">
           {i.map((news1, index) => (
             <NewsCardPlain
               news1={news1}

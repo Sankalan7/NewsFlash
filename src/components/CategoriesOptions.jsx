@@ -5,7 +5,7 @@ const CategoriesOptions = () => {
   return (
     <ul
       id="categories-dropdown"
-      className="font-sans z-50 absolute w-[300px] bg-gray-800 text-white left-0 right-0 mt-1 p-2 flex flex-wrap justify-center opacity-100 pointer-events-auto"
+      className="border border-white rounded-lg font-sans z-50 absolute w-[300px] bg-gray-800 text-white left-0 right-0 mt-1 p-2 flex flex-wrap justify-center opacity-100 pointer-events-auto"
     >
       <li className="w-1/4 py-2 text-center">
         <NavLink

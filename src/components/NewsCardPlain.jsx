@@ -22,7 +22,7 @@ const NewsCardPlain = ({ news1, index, activeArticle }) => {
   return (
     <div
       className={classNames(
-        "flex flex-col h-[540px] w-[350px] border rounded-md overflow-hidden shadow-lg",
+        "flex flex-col h-[540px] border rounded-md overflow-hidden shadow-lg",
         { "bg-blue-500": activeArticle === index }
       )}
     >

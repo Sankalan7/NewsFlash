@@ -5,7 +5,7 @@ const HeadlinesOptions = () => {
   return (
     <ul
       id="headlines-dropdown"
-      className="font-sans z-50 space-x-2 absolute w-[800px] bg-gray-800 text-white left-[677px] right-0 mt-1 p-2 flex flex-wrap justify-center opacity-100 pointer-events-auto"
+      className="border border-white rounded-lg font-sans z-50 space-x-2 absolute w-[800px] bg-gray-800 text-white left-[677px] right-0 mt-1 p-2 flex flex-wrap justify-center opacity-100 pointer-events-auto"
     >
       <div className="w-full pt-2 pb-6 pl-6">COUNTRIES</div>
       <li className="w-1/8 py-2 text-center">

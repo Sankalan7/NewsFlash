@@ -205,7 +205,7 @@ const Navbar = ({
   };
 
   return (
-    <nav className="fixed z-50 w-full bg-black backdrop-blur-xl text-white px-6 py-6 flex items-center">
+    <nav className="fixed z-50 w-full bg-black backdrop-blur-xl text-white px-6 py-6 flex flex-wrap items-center">
       <NavLink to="/" className="mr-8 hover:text-gray-300 flex">
         <FontAwesomeIcon icon={faNewspaper} size="3x" className="mr-2 pt-2" />
         <span
@@ -221,8 +221,8 @@ const Navbar = ({
         </span>
       </NavLink>
 
-      <div className="flex justify-between w-full">
-        <ul className="flex space-x-6 pb-2 font-barlow">
+      <div className="flex flex-wrap justify-between w-full">
+        <ul className="flex flex-wrap space-x-6 pb-2 font-barlow">
           <li className="pt-6">
             <form onSubmit={handleSubmit}>
               <div className="flex items-center">
