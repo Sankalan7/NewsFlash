@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const defaultImageUrl =
   "https://www.industry.gov.au/sites/default/files/August%202018/image/news-placeholder-738.png";
 
 const PostCard = ({ post }) => {
+  useEffect(() => {
+    Aos.init({ duration: 1000 });
+  }, []);
   const [userDetails, setUserDetails] = useState({});
   const userId = localStorage.getItem("userId");
   useEffect(() => {
@@ -36,7 +41,10 @@ const PostCard = ({ post }) => {
 
   return (
     <NavLink exact="true" to={url}>
-      <div className="flex items-center p-4 cursor-pointer hover:shadow-lg bg-black w-full border border-white">
+      <div
+        className="flex items-center p-4 cursor-pointer hover:shadow-lg bg-black w-full border border-white"
+        data-aos="fade-up"
+      >
         <div className="w-1/3 mr-4 h-[220px] overflow-hidden rounded-lg">
           <img
             src={post.urlToImage || defaultImageUrl}
