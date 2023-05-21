@@ -101,9 +101,9 @@ const Home = () => {
             <h2 className="text-3xl font-bold text-blue-900 text-center mb-8">
               Voice Search guide
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 px-[72px] items-center justify-center">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 items-center justify-center">
               <div
-                className="flex flex-col justify-between items-center p-6 bg-[#22679c] text-white h-80 rounded-lg"
+                className="flex flex-col justify-between items-center p-6 bg-[#22679c] text-white min-h-[320px] rounded-lg"
                 data-aos="fade-up"
               >
                 <h3 className="text-xl font-medium  mb-4">
@@ -114,7 +114,7 @@ const Home = () => {
                 </p>
               </div>
               <div
-                className="flex flex-col justify-between items-center p-6 bg-[#43229c] text-white h-80 rounded-lg"
+                className="flex flex-col justify-between items-center p-6 bg-[#43229c] text-white min-h-[320px] rounded-lg"
                 data-aos="fade-up"
               >
                 <h3 className="text-xl font-medium mb-4">
@@ -131,7 +131,7 @@ const Home = () => {
                 </p>
               </div>
               <div
-                className="flex flex-col justify-between items-center p-6 bg-[#5e113c] text-white h-80 rounded-lg"
+                className="flex flex-col justify-between items-center p-6 bg-[#5e113c] text-white min-h-[320px] rounded-lg"
                 data-aos="fade-up"
               >
                 <h3 className="text-xl font-medium mb-4 items-center text-center">
@@ -147,7 +147,7 @@ const Home = () => {
                 </p>
               </div>
               <div
-                className="flex flex-col justify-between items-center p-6 bg-[#33115e] text-white h-80 rounded-lg"
+                className="flex flex-col justify-between items-center p-6 bg-[#33115e] text-white min-h-[320px] rounded-lg"
                 data-aos="fade-up"
               >
                 <h3 className="text-xl font-medium mb-4 items-center text-center">
