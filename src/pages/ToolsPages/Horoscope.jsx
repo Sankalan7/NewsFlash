@@ -93,18 +93,18 @@ const Horoscope = () => {
                   {sign.toUpperCase()}
                 </h3>
                 <div className="flex justify-between space-x-6">
-                  <span
+                  <button
                     className="bg-blue-500 text-white rounded-lg p-2"
                     onClick={() => handleTodayClick({ sign })}
                   >
                     TODAY
-                  </span>
-                  <span
+                  </button>
+                  <button
                     className="bg-blue-500 text-white rounded-lg p-2"
                     onClick={() => handleTomorrowClick({ sign })}
                   >
                     TOMORROW
-                  </span>
+                  </button>
                 </div>
                 {currentSign === sign && todayShow && (
                   <div className="absolute bg-gray-700 text-white font-barlow p-6 w-1/4">
