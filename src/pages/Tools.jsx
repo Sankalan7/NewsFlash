@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import Aos from "aos";
 import "aos/dist/aos.css";
+import bg1 from "../assets/bg1.jpg";
 
 const Tools = () => {
   useEffect(() => {
@@ -84,7 +85,13 @@ const Tools = () => {
           className="flex flex-col items-center justify-center h-screen bg-blue-300 p-12"
           data-aos="fade-up"
         >
-          <div className="grid grid-cols-4 gap-4 h-full w-full">
+          <img
+            src={bg1}
+            alt="NewsFlash"
+            className="absolute inset-0 w-full h-full z-0 "
+            style={{ position: "fixed" }}
+          />
+          <div className="grid grid-cols-4 gap-4 h-full w-full z-50">
             <div
               className="col-span-1 grid grid-rows-2 gap-4 h-full"
               style={{ gridTemplateRows: "60% 37.5%" }}

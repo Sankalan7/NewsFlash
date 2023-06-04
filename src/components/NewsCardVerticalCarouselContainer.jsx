@@ -9,6 +9,7 @@ import "slick-carousel/slick/slick-theme.css";
 import NewsCardBasic from "./NewsCardBasic";
 import Aos from "aos";
 import "aos/dist/aos.css";
+import bg1 from "../assets/bg1.jpg";
 
 const NewsCardVerticalCarouselContainer = ({ i, heading }) => {
   useEffect(() => {
@@ -55,10 +56,13 @@ const NewsCardVerticalCarouselContainer = ({ i, heading }) => {
   return i?.length > 0 ? (
     <>
       <div className="min-h-screen justify-center items-center flex">
-        <div
-          className="justify-center items-center font-maven text-3xl py-12 p-12 text-white fond-bold bg-gradient-to-r from-green-400 via-yellow-500 to-red-500
-"
-        >
+        <img
+          src={bg1}
+          alt="NewsFlash"
+          className="absolute inset-0 w-full h-full z-0 "
+          style={{ position: "fixed" }}
+        />
+        <div className="z-10 justify-center items-center font-maven text-3xl py-12 p-12 text-white font-bold">
           <h1 className="text-white font-yanone mb-12 text-7xl">{heading}</h1>
 
           <Slider {...settings}>

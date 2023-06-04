@@ -163,7 +163,7 @@ const App = () => {
           )}
         </div>
         {!isAuthRoute && (
-          <div className="w-full z-20">
+          <div className="w-full">
             <Footer />
           </div>
         )}

@@ -20,6 +20,7 @@ import {
   LinkedinShareButton,
   LinkedinIcon,
 } from "react-share";
+import blogBG from "../assets/blogBG.jpg";
 
 const defaultImageUrl =
   "https://www.industry.gov.au/sites/default/files/August%202018/image/news-placeholder-738.png";
@@ -468,202 +469,212 @@ const PostDetails = () => {
 
   return (
     <>
-      <div className="max-w-3xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
-        <h1 className="text-3xl font-bold font-merriweather mb-2">
-          {post.title}
-        </h1>
-        <p className="text-sm text-gray-500 mb-2">
-          By {post.author} on {new Date(post.createdOn).toLocaleString()}
-        </p>
+      <div className="min-h-screen flex flex-col justify-center items-center py-12 sm:px-6 lg:px-8">
         <img
-          className="h-96 w-full object-cover mb-4"
-          src={post.urlToImage || defaultImageUrl}
-          alt="Placeholder"
+          src={blogBG}
+          alt="NewsFlash"
+          className="absolute inset-0 w-full h-full z-0 "
+          style={{ position: "fixed" }}
         />
-        <div className="text-2xl font-yanone">{post.content}</div>
-        <p className="text-sm text-gray-500 mt-4">
-          Updated on {new Date(post.updatedOn).toLocaleString()}
-        </p>
-        {post.userId === userDetails.id && (
-          <div className="flex justify-end items-center mt-4">
-            <NavLink exact="true" to={updateUrl}>
-              <button className="mr-4 font-bold text-blue-600 hover:text-blue-900">
-                <FaEdit className="inline-block mr-1" /> Update
-              </button>
-            </NavLink>
-            <button
-              onClick={deletePost}
-              className="font-bold text-red-600 hover:text-red-900"
-            >
-              <FaTrashAlt className="inline-block mr-1" /> Delete
-            </button>
-          </div>
-        )}
-        <div className="mb-3 py-4 flex justify-center space-x-2">
-          <p className="text-xl pt-1">Share it on:</p>
-          <FacebookShareButton url={currentUrl}>
-            <FacebookIcon
-              className="h-10 w-10"
-              logofillcolor="white"
-              round={true}
-            ></FacebookIcon>
-          </FacebookShareButton>
-          <TwitterShareButton url={currentUrl}>
-            <TwitterIcon
-              className="h-10 w-10"
-              logofillcolor="white"
-              round={true}
-            ></TwitterIcon>
-          </TwitterShareButton>
-          <WhatsappShareButton url={currentUrl}>
-            <WhatsappIcon
-              className="h-10 w-10"
-              logofillcolor="white"
-              round={true}
-            ></WhatsappIcon>
-          </WhatsappShareButton>
-          <LinkedinShareButton url={currentUrl}>
-            <LinkedinIcon
-              className="h-10 w-10"
-              logofillcolor="white"
-              round={true}
-            ></LinkedinIcon>
-          </LinkedinShareButton>
-        </div>
-        <div className="flex flex-row p-6 text-3xl justify-between mt-4">
-          <div>
-            <button onClick={handleLike} className="mr-2">
-              {like ? (
-                <FontAwesomeIcon icon={filledThumbsUp} />
-              ) : (
-                <FontAwesomeIcon icon={unfilledThumbsUp} />
-              )}
-            </button>
-            <span>{initialLikes}</span>
-          </div>
-          <div>
-            <button onClick={handleDislike} className="mr-2">
-              {dislike ? (
-                <FontAwesomeIcon icon={filledThumbsDown} />
-              ) : (
-                <FontAwesomeIcon icon={unfilledThumbsDown} />
-              )}
-            </button>
-            <span>{initialDislikes}</span>
-          </div>
-          <div onClick={toggleCommentOpen}>
-            <FontAwesomeIcon icon={faComment} />
-          </div>
-        </div>
-        {commentOpen && (
-          <div>
-            <form id="comment-form" onSubmit={(e) => handleCommentSubmit(e)}>
-              <label
-                htmlFor="comment"
-                className="text-3xl text-black mb-4 mt-4"
-              >
-                Leave a comment
-              </label>
-              <div className="flex flex-row space-x-2">
-                <input
-                  type="text"
-                  id="comment"
-                  name="comment"
-                  value={comment}
-                  onChange={(e) => setComment(e.target.value)}
-                  className="mt-6 appearance-none rounded-lg relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-green-500 focus:border-green-500 focus:z-10 sm:text-sm"
-                />
-                <button
-                  type="submit"
-                  className="text-lg text-white px-2 bg-blue-500 rounded-lg"
-                >
-                  Submit
+        <div className="bg-white z-20 max-w-3xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+          <h1 className="text-3xl font-bold font-merriweather mb-2">
+            {post.title}
+          </h1>
+          <p className="text-sm text-gray-500 mb-2">
+            By {post.author} on {new Date(post.createdOn).toLocaleString()}
+          </p>
+          <img
+            className="h-96 w-full object-cover mb-4"
+            src={post.urlToImage || defaultImageUrl}
+            alt="Placeholder"
+          />
+          <div className="text-2xl font-yanone">{post.content}</div>
+          <p className="text-sm text-gray-500 mt-4">
+            Updated on {new Date(post.updatedOn).toLocaleString()}
+          </p>
+          {post.userId === userDetails.id && (
+            <div className="flex justify-end items-center mt-4">
+              <NavLink exact="true" to={updateUrl}>
+                <button className="mr-4 font-bold text-blue-600 hover:text-blue-900">
+                  <FaEdit className="inline-block mr-1" /> Update
                 </button>
-              </div>
-            </form>
+              </NavLink>
+              <button
+                onClick={deletePost}
+                className="font-bold text-red-600 hover:text-red-900"
+              >
+                <FaTrashAlt className="inline-block mr-1" /> Delete
+              </button>
+            </div>
+          )}
+          <div className="mb-3 py-4 flex justify-center space-x-2">
+            <p className="text-xl pt-1">Share it on:</p>
+            <FacebookShareButton url={currentUrl}>
+              <FacebookIcon
+                className="h-10 w-10"
+                logofillcolor="white"
+                round={true}
+              ></FacebookIcon>
+            </FacebookShareButton>
+            <TwitterShareButton url={currentUrl}>
+              <TwitterIcon
+                className="h-10 w-10"
+                logofillcolor="white"
+                round={true}
+              ></TwitterIcon>
+            </TwitterShareButton>
+            <WhatsappShareButton url={currentUrl}>
+              <WhatsappIcon
+                className="h-10 w-10"
+                logofillcolor="white"
+                round={true}
+              ></WhatsappIcon>
+            </WhatsappShareButton>
+            <LinkedinShareButton url={currentUrl}>
+              <LinkedinIcon
+                className="h-10 w-10"
+                logofillcolor="white"
+                round={true}
+              ></LinkedinIcon>
+            </LinkedinShareButton>
           </div>
-        )}
-        <div className="text-3xl mt-8">Comments({allComments?.length})</div>
-        {allComments?.length > 0 ? (
-          <div className="justify-center flex">
-            <div className="justify-center font-maven p-12 w-full">
-              {allComments.map((comment1) => (
-                <div
-                  key={uuidv4()}
-                  className="flex flex-col mb-5 border-b-2 border-b-gray-500"
+          <div className="flex flex-row p-6 text-3xl justify-between mt-4">
+            <div>
+              <button onClick={handleLike} className="mr-2">
+                {like ? (
+                  <FontAwesomeIcon icon={filledThumbsUp} />
+                ) : (
+                  <FontAwesomeIcon icon={unfilledThumbsUp} />
+                )}
+              </button>
+              <span>{initialLikes}</span>
+            </div>
+            <div>
+              <button onClick={handleDislike} className="mr-2">
+                {dislike ? (
+                  <FontAwesomeIcon icon={filledThumbsDown} />
+                ) : (
+                  <FontAwesomeIcon icon={unfilledThumbsDown} />
+                )}
+              </button>
+              <span>{initialDislikes}</span>
+            </div>
+            <div onClick={toggleCommentOpen}>
+              <FontAwesomeIcon icon={faComment} />
+            </div>
+          </div>
+          {commentOpen && (
+            <div>
+              <form id="comment-form" onSubmit={(e) => handleCommentSubmit(e)}>
+                <label
+                  htmlFor="comment"
+                  className="text-3xl text-black mb-4 mt-4"
                 >
-                  <div className="text-2xl text-blue-500">
-                    {mapUserNames.get(comment1.userId)}
-                  </div>
-                  <div className="flex justify-between">
-                    <div className="text-xl font-merriweather ml-4">
-                      {comment1.comment}
+                  Leave a comment
+                </label>
+                <div className="flex flex-row space-x-2">
+                  <input
+                    type="text"
+                    id="comment"
+                    name="comment"
+                    value={comment}
+                    onChange={(e) => setComment(e.target.value)}
+                    className="mt-6 appearance-none rounded-lg relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-green-500 focus:border-green-500 focus:z-10 sm:text-sm"
+                  />
+                  <button
+                    type="submit"
+                    className="text-lg text-white px-2 bg-blue-500 rounded-lg"
+                  >
+                    Submit
+                  </button>
+                </div>
+              </form>
+            </div>
+          )}
+          <div className="text-3xl mt-8">Comments({allComments?.length})</div>
+          {allComments?.length > 0 ? (
+            <div className="justify-center flex">
+              <div className="justify-center font-maven p-12 w-full">
+                {allComments.map((comment1) => (
+                  <div
+                    key={uuidv4()}
+                    className="flex flex-col mb-5 border-b-2 border-b-gray-500"
+                  >
+                    <div className="text-2xl text-blue-500">
+                      {mapUserNames.get(comment1.userId)}
                     </div>
-                    {comment1.userId === userDetails.id && (
-                      <div>
-                        <button
-                          onClick={() =>
-                            setEditingCommentId((prevId) =>
-                              prevId === comment1.id ? null : comment1.id
-                            )
-                          }
-                        >
-                          <FaEdit className="inline-block mr-1 text-blue-500" />
-                        </button>
-
-                        <button onClick={() => deleteComment(comment1.id)}>
-                          <FaTrashAlt className="inline-block mr-1 text-red-500" />
-                        </button>
+                    <div className="flex justify-between">
+                      <div className="text-xl font-merriweather ml-4">
+                        {comment1.comment}
                       </div>
+                      {comment1.userId === userDetails.id && (
+                        <div>
+                          <button
+                            onClick={() =>
+                              setEditingCommentId((prevId) =>
+                                prevId === comment1.id ? null : comment1.id
+                              )
+                            }
+                          >
+                            <FaEdit className="inline-block mr-1 text-blue-500" />
+                          </button>
+
+                          <button onClick={() => deleteComment(comment1.id)}>
+                            <FaTrashAlt className="inline-block mr-1 text-red-500" />
+                          </button>
+                        </div>
+                      )}
+                    </div>
+                    <div className="text-sm text-gray-500 ml-4">
+                      Commented on:{" "}
+                      {new Date(comment1.commentedOn).toLocaleString()}
+                    </div>
+                    {editingCommentId === comment1.id && (
+                      <form
+                        onSubmit={(e) =>
+                          handleCommentEditSubmit(e, comment1.id)
+                        }
+                        className="mt-4"
+                        id="commentedit-form"
+                      >
+                        <label
+                          htmlFor="commentEdit"
+                          className="text-xl text-black mb-4 mt-4"
+                        >
+                          Edit comment
+                        </label>
+                        <div className="flex flex-row space-x-2">
+                          <input
+                            type="text"
+                            id="commentEdit"
+                            name="commentEdit"
+                            value={commentEdit}
+                            onChange={(e) => setCommentEdit(e.target.value)}
+                            className="mt-6 appearance-none rounded-lg relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-green-500 focus:border-green-500 focus:z-10 sm:text-sm"
+                          />
+                          <button
+                            type="submit"
+                            className="text-lg text-white px-2 bg-blue-500 rounded-lg"
+                          >
+                            Submit
+                          </button>
+                        </div>
+                      </form>
                     )}
                   </div>
-                  <div className="text-sm text-gray-500 ml-4">
-                    Commented on:{" "}
-                    {new Date(comment1.commentedOn).toLocaleString()}
-                  </div>
-                  {editingCommentId === comment1.id && (
-                    <form
-                      onSubmit={(e) => handleCommentEditSubmit(e, comment1.id)}
-                      className="mt-4"
-                      id="commentedit-form"
-                    >
-                      <label
-                        htmlFor="commentEdit"
-                        className="text-xl text-black mb-4 mt-4"
-                      >
-                        Edit comment
-                      </label>
-                      <div className="flex flex-row space-x-2">
-                        <input
-                          type="text"
-                          id="commentEdit"
-                          name="commentEdit"
-                          value={commentEdit}
-                          onChange={(e) => setCommentEdit(e.target.value)}
-                          className="mt-6 appearance-none rounded-lg relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-green-500 focus:border-green-500 focus:z-10 sm:text-sm"
-                        />
-                        <button
-                          type="submit"
-                          className="text-lg text-white px-2 bg-blue-500 rounded-lg"
-                        >
-                          Submit
-                        </button>
-                      </div>
-                    </form>
-                  )}
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
-        ) : (
-          <div className="min-h-[30vh] justify-center items-center flex">
-            <div className="text-center">
-              <h2 className="text-3xl font-bold mb-4 text-black">
-                Wow, so empty! :(
-              </h2>
+          ) : (
+            <div className="min-h-[30vh] justify-center items-center flex">
+              <div className="text-center">
+                <h2 className="text-3xl font-bold mb-4 text-black">
+                  Wow, so empty! :(
+                </h2>
+              </div>
             </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
     </>
   );

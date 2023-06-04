@@ -320,15 +320,12 @@ const Navbar = ({
           {isLoggedIn() ? (
             <>
               <li className="pt-6">
-                <button className="flex flex-row">
+                <button className="flex flex-row" onClick={toggleUserMenuOpen}>
                   <span className="hover:text-gray-300 text-lg font-medium flex items-center mr-2">
                     <FaUserAlt className="mr-2" />
                     {userDetails.userName}
                   </span>
-                  <span
-                    onClick={toggleUserMenuOpen}
-                    className="text-white hover:text-gray-300 text-lg font-medium flex items-center"
-                  >
+                  <span className="text-white hover:text-gray-300 text-lg font-medium flex items-center">
                     {userMenuOpen ? (
                       <FontAwesomeIcon icon={faSortUp} className="mr-2 mt-2" />
                     ) : (
