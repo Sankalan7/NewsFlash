@@ -162,11 +162,7 @@ const App = () => {
             </>
           )}
         </div>
-        {!isAuthRoute && (
-          <div className="w-full">
-            <Footer />
-          </div>
-        )}
+        {!isAuthRoute && <Footer />}
         <ToastContainer
           position="bottom-right"
           autoClose={2000}

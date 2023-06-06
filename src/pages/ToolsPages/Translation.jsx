@@ -5,7 +5,7 @@ const Translation = () => {
   const [translatedText, setTranslatedText] = useState("");
   const [languages, setLanguages] = useState({});
   const [sourceLanguage, setSourceLanguage] = useState("en");
-  const [targetLanguage, setTargetLanguage] = useState("es");
+  const [targetLanguage, setTargetLanguage] = useState("bn");
 
   const handleTextChange = (event) => {
     setText(event.target.value);

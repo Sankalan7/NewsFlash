@@ -159,7 +159,7 @@ const Home = () => {
                   Bitcoin, Donald Trump, Elon musk, Playstation 5...
                 </p>
                 <p className="mt-2 text-base text-center italic">
-                  Try saying : What's up with Bitcoin?
+                  Try saying : What's up with Bitcoin? or Search news Elon musk
                 </p>
               </div>
             </div>
